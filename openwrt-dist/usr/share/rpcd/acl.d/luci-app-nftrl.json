@@ -1,0 +1,20 @@
+{
+	"luci-app-nftrl": {
+		"description": "Grant access to LuCI app nftrl",
+		"read": {
+			"ubus": {
+				"luci": [
+					"getHostHints"
+				]
+			},
+			"uci": [
+				"nftrl"
+			]
+		},
+		"write": {
+			"uci": [
+				"nftrl"
+			]
+		}
+	}
+}

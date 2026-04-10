@@ -1,0 +1,4 @@
+
+config nftrl 'global'
+        option enabled '1'
+
