@@ -11,7 +11,7 @@ cd nftrl
 :: 2. 交叉编译（以从 Windows 编译 Linux amd64 为例）
 set GOOS=linux
 set GOARCH=amd64
-go build -o ./openwrt-dist/usr/sbin/nftrl -trimpath -ldflags "-s -w -buildid==" ./cmd/main.go
+go build -o ./openwrt-dist/usr/sbin/nftrl -trimpath -ldflags "-s -w -buildid=" ./cmd/main.go
 ```
 
 ## 2. 打包上传
