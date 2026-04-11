@@ -39,14 +39,18 @@ return view.extend({
 			}
 		});
 
-		m = new form.Map('nftrl', E('a', { 'href': 'https://github.com/xiaoqidun/nftrl', 'target': '_blank' }, _('NFTRL')),
+		var banner = E('div', {}, [
+			E('h2', {}, E('a', { 'href': 'https://github.com/xiaoqidun/nftrl', 'target': '_blank' }, _('NFTRL'))),
 			E('table', { 'class': 'table cbi-section-table' }, [
 				E('tr', { 'class': 'tr cbi-section-table-row' }, [
 					E('td', { 'class': 'td', 'width': '5%' }, enableCb),
 					E('td', { 'class': 'td' },
 						_('基于 MAC 地址的网络限速工具，规则运行在内核转发路径，仅影响外网流量，不限制局域网通信。'))
 				])
-			]));
+			])
+		]);
+
+		m = new form.Map('nftrl');
 
 		s = m.section(form.GridSection, 'device', _('限速设备列表'));
 		s.anonymous = true;
@@ -101,6 +105,8 @@ return view.extend({
 		o.width = '12.5%';
 		o.rmempty = true;
 
-		return m.render();
+		return m.render().then(function (mapNode) {
+			return E('div', {}, [banner, mapNode]);
+		});
 	}
 });
