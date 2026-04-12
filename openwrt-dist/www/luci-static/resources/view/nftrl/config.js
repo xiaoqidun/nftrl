@@ -44,7 +44,7 @@ return view.extend({
 			E('table', { 'class': 'table cbi-section-table' }, [
 				E('tr', { 'class': 'tr cbi-section-table-row' }, [
 					E('td', { 'class': 'td', 'width': '5%' }, enableCb),
-					E('td', { 'class': 'td' },
+					E('td', { 'class': 'td', 'width': '95%' },
 						_('基于 MAC 地址的网络限速工具，规则运行在内核转发路径，仅影响外网流量，不限制局域网通信。'))
 				])
 			])
