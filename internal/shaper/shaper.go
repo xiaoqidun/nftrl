@@ -50,6 +50,5 @@ func Apply() error {
 // Clean 清理规则
 // 返回: error 错误信息
 func Clean() error {
-	_ = driver.Clean()
-	return nil
+	return driver.Clean()
 }

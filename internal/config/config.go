@@ -107,11 +107,14 @@ func Parse(path string) (*Config, error) {
 				case "enabled":
 					device.Enabled = val == "1"
 				case "mac":
-					mac := strings.ToLower(val)
-					if _, err := net.ParseMAC(mac); err != nil {
+					mac, err := net.ParseMAC(val)
+					if err != nil {
 						return nil, fmt.Errorf("invalid mac %q: %w", val, err)
 					}
-					device.MAC = mac
+					if len(mac) != 6 {
+						return nil, fmt.Errorf("invalid mac %q: expected 6 bytes", val)
+					}
+					device.MAC = mac.String()
 				case "egress_limit":
 					v, err := strconv.Atoi(val)
 					if err != nil {
